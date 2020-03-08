@@ -1,14 +1,14 @@
-.lotWrapper {
+.lot-wrapper {
     width: 70%;
     margin: 0 auto;
 }
 
-.lotImageWrapper {
+.lot-image-wrapper {
     display: inline-block;
     padding: 0 1rem;
 }
 
-.lotImage {
+.lot-image {
     background: url("/images/plywood_placeholder.jpg");
     background-size: auto;
     width: 26rem;
@@ -17,31 +17,31 @@
     display: inline-block;
 }
 
-.lotRightBlock {
+.lot-right-block {
     display: inline-block;
     vertical-align: top;
     height: 100%;
     width: 60%;
 }
 
-.lotDescription {
+.lot-description {
     width: 50%;
     display: inline-block;
     vertical-align: top;
     padding-right: 1rem;
 }
 
-.lotBuyBlock {
+.lot-buy-block {
     display: inline-block;
     padding: 1rem;
     border: 2px solid rgba(0,0,0,0.25);
 }
 
-.lotPrice {
+.lot-price {
     margin-top: 0.5rem;
 }
 
-.lotBuyButton {
+.lot-buy-button {
     background: #8a7251;
     font-size: 25px;
     color:white;
@@ -52,10 +52,14 @@
     cursor: pointer;
 }
 
-.lotBuyButton:hover {
+.lot-buy-button:hover {
     background: #6c593e;
 }
 
-.lotBuyBlockSpring {
+.lot-buy-block-spring {
     height: 1rem;
+}
+
+.lot-name {
+
 }
