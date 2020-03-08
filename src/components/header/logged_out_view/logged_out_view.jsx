@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import './logged_out_view.css';
+import styles from './logged_out_view.module.css';
 
 const LoggedOutView = (props) => {
     const { isAuthenticated } = props;
@@ -9,59 +9,59 @@ const LoggedOutView = (props) => {
         return null;
     }
     return (
-        <div className="navbar-wrapper-large">
+        <div className={styles.navbarWrapperLarge}>
             <Link
                 to="/"
-                className="navbar-link navbar-logo"
+                className={`${styles.navbarLink} ${styles.navbarLogo}`}
             >
                 MorningWood
             </Link>
-            <ul className="navbar-items">
-                <li className="navbar-item">
+            <ul className={styles.navbarItems}>
+                <li className={styles.navbarItem}>
                     <Link
-                        className="navbar-link"
+                        className={styles.navbarLink}
                         to="/"
                     >
                         home
                     </Link>
                 </li>
-                <li className="navbar-item">
+                <li className={styles.navbarItem}>
                     <Link
-                        className="navbar-link"
+                        className={styles.navbarLink}
                         to="/shop"
                     >
                         shop
                     </Link>
                 </li>
-                <li className="navbar-item">
+                <li className={styles.navbarItem}>
                     <Link
-                        className="navbar-link"
+                        className={styles.navbarLink}
                         to="/features"
                     >
                         features
                     </Link>
                 </li>
-                <li className="navbar-item">
+                <li className={styles.navbarItem}>
                     <Link
-                        className="navbar-link"
+                        className={styles.navbarLink}
                         to="/contact"
                     >
                         contact
                     </Link>
                 </li>
             </ul>
-            <ul className="navbar-items">
-                <li className="navbar-item">
+            <ul className={styles.navbarItems}>
+                <li className={styles.navbarItem}>
                     <Link
-                        className="navbar-link"
+                        className={styles.navbarLink}
                         to="/login"
                     >
                         login
                     </Link>
                 </li>
-                <li className="navbar-item">
+                <li className={styles.navbarItem}>
                     <Link
-                        className="navbar-link"
+                        className={styles.navbarLink}
                         to="/signup"
                     >
                         signup
