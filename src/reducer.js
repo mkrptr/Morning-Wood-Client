@@ -10,6 +10,6 @@ const createRootReducer = (history) => combineReducers({
     auth,
     home,
     common,
-})
+});
 
 export default createRootReducer;

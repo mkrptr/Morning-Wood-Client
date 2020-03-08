@@ -1,12 +1,24 @@
-import { HOME_PAGE_LOADED } from "../action_types";
+import { HOME_PAGE_LOADED, FETCH_LOTS } from '../action_types';
 
-export default (state = {}, actions) => {
-    switch (actions.type) {
-        case HOME_PAGE_LOADED:
-            return {
-                ...state,
-            }
-        default:
-            return state;
+export const fetchLots = () => ({
+    type: FETCH_LOTS,
+});
+
+const initialState = {
+    lots: [],
+};
+export default (state = initialState, action) => {
+    switch (action.type) {
+    case HOME_PAGE_LOADED:
+        return {
+            ...state,
+        };
+    case FETCH_LOTS:
+        return {
+            ...state,
+            lots: [{ id: 1, name: 'wood' }],
+        };
+    default:
+        return state;
     }
 };

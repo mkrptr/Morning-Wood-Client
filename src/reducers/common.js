@@ -10,6 +10,7 @@ import {
 const defaultState = {
   appName: 'Morning Wood',
   token: null,
+  isAuthenticated: false,
 };
 
 export default (state = defaultState, action) => {
