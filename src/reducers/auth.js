@@ -1,11 +1,11 @@
 import {
     LOGIN,
-    REGISTER
+    REGISTER,
 } from '../action_types';
 
 const initialState = {
     isAuthenticated: false,
-}
+};
 
 export default (state = initialState, action) => {
     switch (action.type) {
@@ -13,8 +13,8 @@ export default (state = initialState, action) => {
     case REGISTER:
         return {
             ...state,
-            inProgress: false, 
-            errors: []
+            inProgress: false,
+            errors: [],
         };
     default:
         return state;
