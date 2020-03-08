@@ -9,6 +9,7 @@ import Header from './components/header/header';
 import Home from './components/home/home';
 import Footer from './components/footer/footer';
 import Login from './components/login/login';
+import Lot from './components/lot/lot';
 
 const mapStateToProps = (state) => ({
     appLoaded: state.common.appLoaded,
@@ -35,6 +36,7 @@ const App = (props) => {
             <Switch>
                 <Route exact path="/" component={Home} />
                 <Route path="/login" component={Login} />
+                <Route path="/lots/:id" component={Lot} />
             </Switch>
             <Footer />
         </div>
