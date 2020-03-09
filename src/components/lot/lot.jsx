@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
-import './lot.css';
+import styles from './lot.module.css';
 
 const Lot = () => {
     const { id } = useParams();
@@ -15,27 +15,27 @@ const Lot = () => {
 
     return (
         <div>
-            <div styleName="lot-wrapper">
-                <div styleName="lot-image-wrapper">
-                    <div styleName="lot-image" />
+            <div className={styles.lotWrapper}>
+                <div className={styles.lotImageWrapper}>
+                    <div className={styles.lotImage} />
                 </div>
-                <div styleName="lot-right-block">
-                    <div styleName="lot-name">
+                <div className={styles.lotRightBlock}>
+                    <div className={styles.lotName}>
                         <h1>{lot.name}</h1>
                     </div>
-                    <div styleName="lot-description">
+                    <div className={styles.lotDescription}>
                         <p>{lot.description}</p>
                     </div>
-                    <div styleName="lot-buy-block">
-                        <div styleName="lot-price">
+                    <div className={styles.lotBuyBlock}>
+                        <div className={styles.lotPrice}>
                             <h1>
                                 $
                                 {lot.price}
                             </h1>
                         </div>
-                        <div styleName="lot-buy-block-spring" />
+                        <div className={styles.lotBuyBlockSpring} />
                         <button
-                            styleName="lot-buy-button"
+                            className={styles.lotBuyButton}
                             type="button"
                         >
                             Add to cart

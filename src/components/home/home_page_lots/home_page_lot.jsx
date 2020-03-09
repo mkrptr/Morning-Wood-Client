@@ -2,32 +2,32 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import './home_page_lot.css';
+import styles from './home_page_lot.module.css';
 
 const MainPageLot = (props) => {
     const { lot } = props;
     return (
-        <div className="lot">
-            <div className="lot-wrapper">
+        <div className={styles.lot}>
+            <div className={styles.lotWrapper}>
                 <div
-                    className="lot-image"
+                    className={styles.lotImage}
                     src=""
-                    alt="lot_image"
+                    alt="lot image"
                 />
                 <Link
-                    className="lot-name"
+                    className={styles.lotName}
                     to={`/lots/${lot.id}`}
                 >
                     { lot.name }
                 </Link>
                 <div>
-                    <div className="lot-price">
+                    <div className={styles.lotPrice}>
                         $
                         {lot.price}
                     </div>
                     <button
                         type="button"
-                        className="buy-button"
+                        className={styles.buyButton}
                     >
                         buy
                     </button>

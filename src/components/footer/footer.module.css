@@ -2,7 +2,7 @@
      background: #18181a;
      color: white;
  }
- .footer-columns {
+ .footerColumns {
      width: 80%;
      margin: 0 auto;
      padding: 5rem 0;
@@ -14,7 +14,7 @@
      width: 25%;
  }
 
- .column-title {
+ .columnTitle {
      text-align: center;
  }
 

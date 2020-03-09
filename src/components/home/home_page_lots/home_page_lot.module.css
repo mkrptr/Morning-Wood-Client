@@ -7,32 +7,32 @@
     width: 13rem;
 }
 
-.lot-wrapper {
+.lotWrapper {
     border-radius: 3px;
     padding: 1rem 1rem;
     transition: 0.3s;
 }
 
-.lot-wrapper:hover {
+.lotWrapper:hover {
     box-shadow: 0 5px 20px 0 rgba(0,0,0,.1);
 }
 
-.lot-image {
+.lotImage {
     height: 11rem;
     background: url("/images/plywood_placeholder.jpg");
     background-size: contain;
     background-repeat: no-repeat;
 }
-.lot-name {
+.lotName {
     text-decoration: none;
     color: #000;
 }
 
-.lot-price {
+.lotPrice {
     display: inline-block;
 }
 
-.buy-button {
+.buyButton {
     border: none;
     color:white;
     background:#8a7251;
@@ -45,7 +45,7 @@
     transition: 0.3s;
 }
 
-.buy-button:hover {
+.buyButton:hover {
     background: #6c593e;
 }
 
