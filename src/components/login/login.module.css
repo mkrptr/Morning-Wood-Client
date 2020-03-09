@@ -1,0 +1,60 @@
+.loginWrapper {
+    width: 40%;
+    margin: 5rem auto;
+    text-align: center;
+}
+
+.loginBlock {
+   display: inline-block;
+   width: auto;
+   margin: 0 auto;
+}
+
+.userIcon {
+    height: 15rem;
+    width: 15rem;
+    margin: 0 auto 5rem auto;
+    display: block;
+}
+
+.labelText {
+    text-align: left;
+    margin: 0;
+    padding-left: 0.25rem;
+    color:#606060
+}
+
+.inputField {
+    border: 0;
+    outline: 0;
+    background: transparent;
+    border-bottom: 2px solid #c8c8c8;
+    width: 100%;
+    font-size: 21px;
+    padding-left: 0.25rem;
+    transition: 0.3s;
+}
+
+.inputField:focus-within {
+    border-color: #6c593e;
+}
+
+.loginSubmitButton {
+    transition: 0.3s;
+    color:white;
+    background:#8a7251;
+    width: 100%;
+    border-radius: 6px;
+    border: none;
+    height: 2.6rem;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.loginSubmitButton:hover {
+    background: #6c593e;
+}
+
+.fieldWrapper {
+    margin-bottom: 1.5rem;
+}

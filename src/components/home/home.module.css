@@ -1,0 +1,53 @@
+
+.backgroundContainer {
+     background: url("/images/logs_stacked_dark_thin.jpg");
+     background-position: -53rem 95rem;
+ }
+
+ .slimContainer {
+     width: 60%;
+     margin: 0 auto;
+     height: 100%;
+ }
+
+ .present {
+     height: 17rem;
+     padding: 8rem 0;
+     color: white;
+ }
+
+ .logs {
+     font-size: 5rem;
+     margin: 1rem 0;
+     color: #fff;
+ }
+
+ .shopButton {
+     background: #8a7251;
+     color: white;
+     border: none;
+     padding: 0.5rem 1.5rem;
+     text-transform: uppercase;
+     border-radius: 5px;
+     font-size: 18px;
+     cursor: pointer;
+     transition: 0.3s;
+ }
+
+ .shopButton:hover {
+     background: #6c593e;
+ }
+
+ .featuredWrapper {
+     width: 60%;
+     margin: 5rem auto;
+ }
+ @media screen and (max-width: 512px) {
+     .featuredWrapper {
+         width: 90%;
+     }
+
+     .logs {
+         font-size: 4rem;
+     }
+ }
