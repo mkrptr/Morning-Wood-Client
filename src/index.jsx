@@ -17,4 +17,5 @@ ReactDOM.render((
         </ConnectedRouter>
     </Provider>
 ),
+// eslint-disable-next-line no-undef
 document.getElementById('root'));

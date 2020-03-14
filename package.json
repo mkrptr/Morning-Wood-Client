@@ -78,7 +78,7 @@
     "webpack-cli": "^3.3.11"
   },
   "scripts": {
-    "start": "cross-env PORT=3000 node scripts/start.js",
+    "start": "cross-env PORT=3000 IMAGE_PATH=http://140.82.36.93 node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js"
   },

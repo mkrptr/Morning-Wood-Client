@@ -19,7 +19,6 @@
 
 .lotImage {
     height: 11rem;
-    background: url("/images/plywood_placeholder.jpg");
     background-size: contain;
     background-repeat: no-repeat;
 }
