@@ -59,6 +59,7 @@ process.env.NODE_PATH = (process.env.NODE_PATH || '')
 // Grab NODE_ENV and REACT_APP_* environment variables and prepare them to be
 // injected into the application via DefinePlugin in webpack configuration.
 const REACT_APP = /^REACT_APP_/i;
+const IMAGE_PATH = process.env.IMAGE_PATH || "";
 
 function getClientEnvironment(publicUrl) {
   const raw = Object.keys(process.env)
@@ -85,6 +86,7 @@ function getClientEnvironment(publicUrl) {
         WDS_SOCKET_HOST: process.env.WDS_SOCKET_HOST,
         WDS_SOCKET_PATH: process.env.WDS_SOCKET_PATH,
         WDS_SOCKET_PORT: process.env.WDS_SOCKET_PORT,
+        IMAGE_PATH,
       }
     );
   // Stringify all values so we can feed into webpack DefinePlugin
