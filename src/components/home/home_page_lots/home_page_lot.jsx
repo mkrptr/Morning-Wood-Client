@@ -9,10 +9,10 @@ const MainPageLot = (props) => {
     return (
         <div className={styles.lot}>
             <div className={styles.lotWrapper}>
-                <div
+                <img
                     className={styles.lotImage}
-                    src=""
-                    alt="lot image"
+                    src={`${process.env.IMAGE_PATH}/images/plywood_placeholder.jpg`}
+                    alt="lot"
                 />
                 <Link
                     className={styles.lotName}
