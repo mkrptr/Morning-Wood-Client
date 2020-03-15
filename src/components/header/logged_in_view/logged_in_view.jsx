@@ -1,11 +1,11 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styles from './logged_out_view.module.css';
+import styles from './logged_in_view.module.css';
 
-const LoggedOutView = (props) => {
+const LoggedInView = (props) => {
     const { isAuthenticated } = props;
-    if (isAuthenticated) {
+    if (!isAuthenticated) {
         return null;
     }
     return (
@@ -54,17 +54,9 @@ const LoggedOutView = (props) => {
                 <li className={styles.navbarItem}>
                     <Link
                         className={styles.navbarLink}
-                        to="/login"
+                        to="/account"
                     >
-                        login
-                    </Link>
-                </li>
-                <li className={styles.navbarItem}>
-                    <Link
-                        className={styles.navbarLink}
-                        to="/signup"
-                    >
-                        signup
+                        account
                     </Link>
                 </li>
             </ul>
@@ -72,4 +64,4 @@ const LoggedOutView = (props) => {
     );
 };
 
-export default LoggedOutView;
+export default LoggedInView;

@@ -1,97 +1,107 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+/* eslint-disable react/prop-types */
+import React from 'react';
+import { inject, observer } from 'mobx-react';
+import { observable, extendObservable } from 'mobx';
+import { withRouter } from 'react-router-dom';
+
+import LoginErrors from '../login_errors/login_errors';
+import LoadingBar from '../loading_bar/loading_bar';
 import styles from './login.module.css';
 
-const LoginErrors = (props) => {
-    const { errors } = props;
-    const errorList = errors.map((error) => (
-        <li className={styles.loginError}>
-            {error.name}
-        </li>
-    ));
-    return (
-        <ul className={styles.loginErrors}>
-            {errorList}
-        </ul>
-    );
-};
+@inject('authStore')
+@withRouter
+@observer
+class Login extends React.Component {
+    @observable credentials = {
+        login: '',
+        password: '',
+    };
 
-LoginErrors.propTypes = {
-    errors: PropTypes.arrayOf(
-        PropTypes.exact({
-            name: PropTypes.string.isRequired,
-        }),
-    ).isRequired,
-};
-
-const Login = () => {
-    const [state, setCredentials] = useState(
-        {
+    constructor(props) {
+        super(props);
+        extendObservable(this, {
             login: '',
             password: '',
-            errors: [],
-        },
-    );
+        });
+        this.authenticate = this.authenticate.bind(this);
+        this.inputChange = this.inputChange.bind(this);
+    }
 
-    const authenticate = (event) => {
+    async authenticate(event) {
         if (event) {
             event.preventDefault();
         }
-    };
+        const { authStore, history } = this.props;
+        const res = await authStore.login(
+            this.credentials.login,
+            this.credentials.password,
+        );
+        if (res) {
+            history.replace('/');
+        }
+    }
 
-    const inputChange = (event) => {
+    inputChange(event) {
         event.persist();
-        setCredentials((newCredentials) => ({
-            ...newCredentials,
+        this.credentials = {
+            ...this.credentials,
             [event.target.name]: event.target.value,
-        }));
-    };
-    return (
-        <div className={styles.loginWrapper}>
-            <form
-                className={styles.loginBlock}
-                onSubmit={authenticate}
-            >
-                <h1 className={styles.welcomeText}>Welcome</h1>
-                <img
-                    className={styles.userIcon}
-                    src="/images/small-log-icon.png"
-                    alt="user icon"
-                />
-                <LoginErrors errors={state.errors} />
-                <div className={styles.loginMainBox}>
-                    <div className={styles.fieldWrapper}>
-                        <p className={styles.labelText}>Login</p>
-                        <input
-                            type="text"
-                            className={styles.inputField}
-                            name="login"
-                            placeholder="Login"
-                            value={state.login}
-                            onChange={inputChange}
-                        />
-                    </div>
-                    <div className={styles.fieldWrapper}>
-                        <p className={styles.labelText}>Password</p>
-                        <input
-                            type="password"
-                            className={styles.inputField}
-                            name="password"
-                            placeholder="Password"
-                            value={state.password}
-                            onChange={inputChange}
-                        />
-                    </div>
-                </div>
-                <button
-                    type="submit"
-                    className={styles.loginSubmitButton}
+        };
+    }
+
+    render() {
+        const { authStore } = this.props;
+        const { errors, inProgress } = authStore;
+
+        return (
+            <div className={styles.loginWrapper}>
+                <form
+                    className={styles.loginBlock}
+                    onSubmit={this.authenticate}
                 >
-                    Login
-                </button>
-            </form>
-        </div>
-    );
-};
+                    <h1 className={styles.welcomeText}>Welcome</h1>
+                    <img
+                        className={styles.userIcon}
+                        src={`${process.env.IMAGE_PATH}/images/small-log-icon.png`}
+                        alt="user"
+                    />
+                    <LoginErrors errors={errors} />
+                    <LoadingBar inProgress={inProgress} />
+                    <div className={styles.loginMainBox}>
+                        <div className={styles.fieldWrapper}>
+                            <p className={styles.labelText}>Login</p>
+                            <input
+                                type="text"
+                                className={styles.inputField}
+                                name="login"
+                                placeholder="Login"
+                                value={this.credentials.login}
+                                onChange={this.inputChange}
+                            />
+                        </div>
+                        <div className={styles.fieldWrapper}>
+                            <p className={styles.labelText}>Password</p>
+                            <input
+                                type="password"
+                                className={styles.inputField}
+                                name="password"
+                                placeholder="Password"
+                                value={this.credentials.password}
+                                onChange={this.inputChange}
+                            />
+                        </div>
+                    </div>
+                    <button
+                        type="submit"
+                        className={styles.loginSubmitButton}
+                    >
+                        Login
+                    </button>
+                </form>
+            </div>
+        );
+    }
+}
+
 
 export default Login;
