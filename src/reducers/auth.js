@@ -2,14 +2,13 @@ import {
     LOGIN,
     REGISTER,
 } from '../action_types';
+import ApiService from '../services/api.service';
 
-const initialState = {
-    isAuthenticated: false,
-};
 
-export default (state = initialState, action) => {
+export default (state, action) => {
     switch (action.type) {
     case LOGIN:
+        break;
     case REGISTER:
         return {
             ...state,
