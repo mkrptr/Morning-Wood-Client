@@ -5,7 +5,7 @@ import { observable, extendObservable } from 'mobx';
 import { withRouter } from 'react-router-dom';
 
 import LoginErrors from '../login_errors/login_errors';
-import LoadingCircle from '../loading_circle/loading_circle';
+import LoadingBar from '../loading_bar/loading_bar';
 import styles from './login.module.css';
 
 @inject('authStore')
@@ -66,7 +66,7 @@ class Login extends React.Component {
                         alt="user"
                     />
                     <LoginErrors errors={errors} />
-                    <LoadingCircle inProgress={inProgress} />
+                    <LoadingBar inProgress={inProgress} />
                     <div className={styles.loginMainBox}>
                         <div className={styles.fieldWrapper}>
                             <p className={styles.labelText}>Login</p>
