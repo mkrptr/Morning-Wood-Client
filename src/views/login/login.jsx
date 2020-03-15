@@ -4,8 +4,8 @@ import { inject, observer } from 'mobx-react';
 import { observable, extendObservable } from 'mobx';
 import { withRouter } from 'react-router-dom';
 
-import LoginErrors from '../login_errors/login_errors';
-import LoadingBar from '../loading_bar/loading_bar';
+import LoginErrors from './components/login_errors/login_errors';
+import LoadingBar from './components/loading_bar/loading_bar';
 import styles from './login.module.css';
 
 @inject('authStore')
