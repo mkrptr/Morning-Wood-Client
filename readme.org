@@ -1,0 +1,32 @@
+* Morning Wood Frontend
+
+* Building and deploying
+** Prerequisites
+- yarn
+** Building
+*** Clone this repository
+#+BEGIN_SRC bash
+git clone git@github.com:mkrptr/Morning-Wood-Client.git; cd Morning-Wood-Client
+#+END_SRC
+*** Install all dependencies
+#+BEGIN_SRC bash
+yarn install
+#+END_SRC
+*** Run dev server
+#+BEGIN_SRC bash
+yarn start
+#+END_SRC
+*** Build for production
+#+BEGIN_SRC bash
+IMAGE_PATH=<path_to_cdn_with_images> yarn build
+#+END_SRC
+
+** Docker build
+You can also serve all files with docker
+#+BEGIN_SRC bash
+docker build -t morning-wood-client .
+#+END_SRC
+Which can be run by
+#+BEGIN_SRC bash
+docker run  -it -v -p 8080:80 --rm morning-wood-client
+#+END_SRC
