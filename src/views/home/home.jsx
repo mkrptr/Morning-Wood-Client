@@ -6,13 +6,7 @@ import HomePageLots from './home_page_lots/home_page_lots';
 
 const Home = () => (
     <div>
-        <div
-            className={styles.backgroundContainer}
-            style={{
-                background: `url(${process.env.IMAGE_PATH}/images/logs_stacked_dark_thin.jpg)`,
-                backgroundPosition: '-53rem 95rem',
-            }}
-        >
+        <div className={styles.backgroundContainer}>
             <div className={styles.slimContainer}>
                 <div className={styles.present}>
                     <p className={styles.welcome}>Welcome to Morning Wood</p>
