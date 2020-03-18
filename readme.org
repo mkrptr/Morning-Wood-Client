@@ -17,6 +17,8 @@ yarn install
 yarn start
 #+END_SRC
 *** Build for production
+Replace <path_to_cdn_with_images> with the actual path.
+If kept empty, images are expected to be served from <current_host>/images
 #+BEGIN_SRC bash
 IMAGE_PATH=<path_to_cdn_with_images> yarn build
 #+END_SRC
@@ -28,5 +30,5 @@ docker build -t morning-wood-client .
 #+END_SRC
 Which can be run by
 #+BEGIN_SRC bash
-docker run  -it -v -p 8080:80 --rm morning-wood-client
+docker run -it -p 8080:80 --rm morning-wood-client
 #+END_SRC
