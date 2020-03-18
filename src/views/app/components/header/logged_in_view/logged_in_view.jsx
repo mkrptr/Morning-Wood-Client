@@ -28,7 +28,7 @@ const LoggedInView = (props) => {
                 <li className={styles.navbarItem}>
                     <Link
                         className={styles.navbarLink}
-                        to="/shop"
+                        to="/catalog"
                     >
                         shop
                     </Link>

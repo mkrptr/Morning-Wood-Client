@@ -3,13 +3,14 @@ import React from 'react';
 import { Route, Switch, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { inject, observer } from 'mobx-react';
-import './App.css';
-import Header from './common_components/header/header';
-import Home from './views/home/home';
-import Footer from './common_components/footer/footer';
-import Login from './views/login/login';
-import Lot from './common_components/lot/lot';
-import Catalog from './views/catalog/catalog';
+
+import './app.css';
+import Header from './components/header/header';
+import Home from '../home/home';
+import Footer from './components/footer/footer';
+import Login from '../login/login';
+import Lot from '../lot/lot';
+import Catalog from '../catalog/catalog';
 
 
 @inject('authStore')

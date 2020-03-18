@@ -1,0 +1,65 @@
+.lotWrapper {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.lotImageWrapper {
+    display: inline-block;
+    padding: 0 1rem;
+}
+
+.lotImage {
+    background: url("/images/plywood_placeholder.jpg");
+    background-size: auto;
+    width: 26rem;
+    height: 28rem;
+    background-size: contain;
+    display: inline-block;
+}
+
+.lotRightBlock {
+    display: inline-block;
+    vertical-align: top;
+    height: 100%;
+    width: 60%;
+}
+
+.lotDescription {
+    width: 50%;
+    display: inline-block;
+    vertical-align: top;
+    padding-right: 1rem;
+}
+
+.lotBuyBlock {
+    display: inline-block;
+    padding: 1rem;
+    border: 2px solid rgba(0,0,0,0.25);
+}
+
+.lotPrice {
+    margin-top: 0.5rem;
+}
+
+.lotBuyButton {
+    background: #8a7251;
+    font-size: 25px;
+    color:white;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 4rem;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.lotBuyButton:hover {
+    background: #6c593e;
+}
+
+.lotBuyBlockSpring {
+    height: 1rem;
+}
+
+.lotName {
+
+}
