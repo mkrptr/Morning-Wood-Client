@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import MainPageLot from './home_page_lot';
+import MainPageLot from '../../../common_components/lot/lot';
 
 
 const HomePageLots = () => {

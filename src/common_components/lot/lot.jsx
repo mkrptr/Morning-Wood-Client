@@ -1,50 +1,47 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+
 import styles from './lot.module.css';
 
-const Lot = () => {
-    const { id } = useParams();
-    const [lot, setLot] = useState({});
-
-    useEffect(() => {
-        const fetchLot = async (lotId) => {
-            setLot({ id: 1, name: 'Nigga wood', price: 1488 });
-        };
-        fetchLot(id);
-    }, [setLot, id]);
-
+const MainPageLot = (props) => {
+    const { lot } = props;
     return (
-        <div>
+        <div className={styles.lot}>
             <div className={styles.lotWrapper}>
-                <div className={styles.lotImageWrapper}>
-                    <div className={styles.lotImage} />
-                </div>
-                <div className={styles.lotRightBlock}>
-                    <div className={styles.lotName}>
-                        <h1>{lot.name}</h1>
+                <img
+                    className={styles.lotImage}
+                    src={`${process.env.IMAGE_PATH}/images/plywood_placeholder.jpg`}
+                    alt="lot"
+                />
+                <Link
+                    className={styles.lotName}
+                    to={`/lots/${lot.id}`}
+                >
+                    { lot.name }
+                </Link>
+                <div>
+                    <div className={styles.lotPrice}>
+                        $
+                        {lot.price}
                     </div>
-                    <div className={styles.lotDescription}>
-                        <p>{lot.description}</p>
-                    </div>
-                    <div className={styles.lotBuyBlock}>
-                        <div className={styles.lotPrice}>
-                            <h1>
-                                $
-                                {lot.price}
-                            </h1>
-                        </div>
-                        <div className={styles.lotBuyBlockSpring} />
-                        <button
-                            className={styles.lotBuyButton}
-                            type="button"
-                        >
-                            Add to cart
-                        </button>
-                    </div>
+                    <button
+                        type="button"
+                        className={styles.buyButton}
+                    >
+                        buy
+                    </button>
                 </div>
             </div>
         </div>
     );
 };
 
-export default Lot;
+MainPageLot.propTypes = {
+    lot: PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        price: PropTypes.number.isRequired,
+        description: PropTypes.string,
+    }).isRequired,
+};
+export default MainPageLot;

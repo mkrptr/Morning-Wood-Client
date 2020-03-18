@@ -28,7 +28,7 @@ const LoggedOutView = (props) => {
                 <li className={styles.navbarItem}>
                     <Link
                         className={styles.navbarLink}
-                        to="/shop"
+                        to="/catalog"
                     >
                         shop
                     </Link>

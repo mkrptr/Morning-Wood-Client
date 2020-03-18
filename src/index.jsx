@@ -5,7 +5,7 @@ import { Provider } from 'mobx-react';
 
 import './index.css';
 import authStore from './stores/auth_store';
-import App from './App';
+import App from './views/app/app';
 
 const stores = {
     authStore,

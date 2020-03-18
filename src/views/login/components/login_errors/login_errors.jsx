@@ -1,5 +1,6 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import styles from './login_errors.module.css';
 
 function hashCode(s) {
@@ -26,6 +27,14 @@ const LoginErrors = (props) => {
             {errorList}
         </ul>
     );
+};
+
+LoginErrors.propTypes = {
+    errors: PropTypes.arrayOf(
+        PropTypes.shape({
+            body: PropTypes.string.isRequired,
+        }),
+    ).isRequired,
 };
 
 export default LoginErrors;
