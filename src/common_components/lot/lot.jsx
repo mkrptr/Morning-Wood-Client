@@ -25,12 +25,6 @@ const MainPageLot = (props) => {
                         $
                         {lot.price}
                     </div>
-                    <button
-                        type="button"
-                        className={styles.buyButton}
-                    >
-                        buy
-                    </button>
                 </div>
             </div>
         </div>

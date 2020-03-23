@@ -1,0 +1,27 @@
+.filterWrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.parameterSortBlock {
+    display: flex;
+    width: 40%;
+    justify-content: space-between;
+    min-width: 16rem;
+}
+
+.parameterSortButton {
+    text-transform: uppercase;
+    display: flex;
+    align-items: baseline;
+    cursor: pointer;
+}
+
+.parameterSortArrow {
+    height: 0.5625rem;
+}
+
+.parameterSortName {
+    margin: 0 0.3125rem 0 0;
+}
