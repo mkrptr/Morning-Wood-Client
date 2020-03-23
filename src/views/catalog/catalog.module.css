@@ -1,0 +1,17 @@
+.catalogBody {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.catalogBanner {
+    background: url("/images/logs_stacked_dark_thin.jpg");
+    display: flex;
+    justify-content: center;
+    height: 15rem;
+    margin: 2rem 0;
+}
+
+.bannerTitle {
+    align-self: center;
+    color: white;
+}
