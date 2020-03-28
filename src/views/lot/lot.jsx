@@ -8,7 +8,13 @@ const Lot = () => {
 
     useEffect(() => {
         const fetchLot = async (lotId) => {
-            setLot({ id: 1, name: 'Nigga wood', price: 1488 });
+            setLot({
+                id: 1,
+                name: 'Nigga wood',
+                price: 1488,
+                description: 'This ass fucking wood made of the finest niggas of Detroit ghettos will bless you with its odor of fried chicken and make your father fucking disappear into thin air',
+                imagePath: `${process.env.IMAGE_PATH}/images/nigga_wood.jpg`,
+            });
         };
         fetchLot(id);
     }, [setLot, id]);
@@ -17,7 +23,11 @@ const Lot = () => {
         <div>
             <div className={styles.lotWrapper}>
                 <div className={styles.lotImageWrapper}>
-                    <div className={styles.lotImage} />
+                    <img
+                        className={styles.lotImage}
+                        src={lot.imagePath}
+                        alt="lot"
+                    />
                 </div>
                 <div className={styles.lotRightBlock}>
                     <div className={styles.lotName}>

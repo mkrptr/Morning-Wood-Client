@@ -9,11 +9,8 @@
 }
 
 .lotImage {
-    background: url("/images/plywood_placeholder.jpg");
-    background-size: auto;
     width: 26rem;
-    height: 28rem;
-    background-size: contain;
+    height: auto;
     display: inline-block;
 }
 
