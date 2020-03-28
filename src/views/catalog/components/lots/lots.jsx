@@ -6,11 +6,7 @@ import Lot from '../../../../common_components/lot/lot';
 
 const Lots = (props) => {
     const { lots } = props;
-    console.log("lots");
-    console.log(lots);
-    useEffect(() => {
-        console.log('lots rerender');
-    }, [lots]);
+
     const lotsList = lots.map((lot) => (
         <Lot lot={lot} key={lot.id} />
     ));

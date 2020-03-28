@@ -55,13 +55,9 @@ const Catalog = () => {
         if (!lotsLoaded) {
             getLots();
         }
-        console.log('catalog: effect');
-        console.log(lots);
     }, [setLots, lotsLoaded, setLotsLoaded, lots]);
 
     const onLotsUpdate = (newLots) => {
-        console.log('catalog: update');
-        console.log(newLots);
         setLots(newLots);
     };
 
