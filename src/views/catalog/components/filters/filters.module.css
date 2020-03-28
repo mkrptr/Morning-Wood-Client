@@ -15,7 +15,6 @@
     text-transform: uppercase;
     display: flex;
     align-items: baseline;
-    cursor: pointer;
 }
 
 .parameterSortArrow {
@@ -24,4 +23,13 @@
 
 .parameterSortName {
     margin: 0 0.3125rem 0 0;
+}
+
+.parameterSortSelect {
+    background: none;
+    outline: none;
+    border: none;
+    font-size: 16px;
+    text-transform: uppercase;
+    cursor: pointer;
 }

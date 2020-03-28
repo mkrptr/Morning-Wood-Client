@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import Lot from '../../../../common_components/lot/lot';
@@ -6,9 +6,13 @@ import Lot from '../../../../common_components/lot/lot';
 
 const Lots = (props) => {
     const { lots } = props;
-
+    console.log("lots");
+    console.log(lots);
+    useEffect(() => {
+        console.log('lots rerender');
+    }, [lots]);
     const lotsList = lots.map((lot) => (
-        <Lot lot={lot} key={lot.name} />
+        <Lot lot={lot} key={lot.id} />
     ));
 
     return (
@@ -21,6 +25,7 @@ const Lots = (props) => {
 Lots.propTypes = {
     lots: PropTypes.arrayOf(
         PropTypes.shape({
+            id: PropTypes.number.isRequired,
             name: PropTypes.string.isRequired,
             price: PropTypes.number.isRequired,
             description: PropTypes.string,
