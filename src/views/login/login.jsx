@@ -45,8 +45,8 @@ class Login extends React.Component {
     inputChange(event) {
         event.persist();
         this.credentials = {
-            [event.target.name]: event.target.value,
             ...this.credentials,
+            [event.target.name]: event.target.value,
         };
     }
 
