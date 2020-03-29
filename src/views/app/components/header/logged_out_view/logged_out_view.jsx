@@ -62,7 +62,7 @@ const LoggedOutView = (props) => {
                 <li className={styles.navbarItem}>
                     <Link
                         className={styles.navbarLink}
-                        to="/signup"
+                        to="/register"
                     >
                         signup
                     </Link>

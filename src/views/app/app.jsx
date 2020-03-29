@@ -11,7 +11,7 @@ import Footer from './components/footer/footer';
 import Login from '../login/login';
 import Lot from '../lot/lot';
 import Catalog from '../catalog/catalog';
-
+import Register from '../register/register';
 
 @inject('authStore')
 @withRouter
@@ -30,6 +30,7 @@ class App extends React.Component {
                     <Route path="/login" component={Login} />
                     <Route path="/lots/:id" component={Lot} />
                     <Route path="/catalog" component={Catalog} />
+                    <Route path="/register" component={Register} />
                 </Switch>
                 <Footer />
             </div>

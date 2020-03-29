@@ -1,13 +1,20 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { inject, observer } from 'mobx-react';
+
 import styles from './logged_in_view.module.css';
 
 const LoggedInView = (props) => {
-    const { isAuthenticated } = props;
-    if (!isAuthenticated) {
+    const { authStore } = props;
+    if (!authStore.isAuthenticated) {
         return null;
     }
+
+    const logout = async () => {
+        await authStore.logout();
+    };
+
     return (
         <div className={styles.navbarWrapperLarge}>
             <Link
@@ -59,9 +66,18 @@ const LoggedInView = (props) => {
                         account
                     </Link>
                 </li>
+                <li className={styles.navbarItem}>
+                    <button
+                        type="button"
+                        className={styles.navbarLink}
+                        onClick={logout}
+                    >
+                        logout
+                    </button>
+                </li>
             </ul>
         </div>
     );
 };
 
-export default LoggedInView;
+export default inject('authStore')(observer(LoggedInView));
