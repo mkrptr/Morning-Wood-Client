@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-
+import LotPropType from '../../../../models/prop_types/lot';
 import Lot from '../../../../common_components/lot/lot';
 
 
@@ -20,12 +20,7 @@ const Lots = (props) => {
 
 Lots.propTypes = {
     lots: PropTypes.arrayOf(
-        PropTypes.shape({
-            id: PropTypes.number.isRequired,
-            name: PropTypes.string.isRequired,
-            price: PropTypes.number.isRequired,
-            description: PropTypes.string,
-        }).isRequired,
+        LotPropType,
     ).isRequired,
 };
 

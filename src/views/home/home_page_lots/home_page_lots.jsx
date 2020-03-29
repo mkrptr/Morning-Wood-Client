@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import MainPageLot from '../../../common_components/lot/lot';
+import Lot from '../../../common_components/lot/lot';
 
 
 const HomePageLots = () => {
@@ -13,7 +13,7 @@ const HomePageLots = () => {
     }, [setLots]);
 
     const lotsList = lots.map((lot) => (
-        <MainPageLot key={lot.id} lot={lot} />
+        <Lot key={lot.id} lot={lot} />
     ));
     return (
         <div className="lots-wrapper">
