@@ -14,4 +14,4 @@ class UserStore {
         this.user = null;
     }
 }
-export default new UserStore();
+export default UserStore;

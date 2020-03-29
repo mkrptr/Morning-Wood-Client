@@ -33,6 +33,7 @@ const MainPageLot = (props) => {
 
 MainPageLot.propTypes = {
     lot: PropTypes.shape({
+        id: PropTypes.number.isRequired,
         name: PropTypes.string.isRequired,
         price: PropTypes.number.isRequired,
         description: PropTypes.string,

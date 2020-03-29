@@ -1,12 +1,14 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { inject, observer } from 'mobx-react';
+import { observer } from 'mobx-react';
 
 import styles from './logged_in_view.module.css';
+import useStores from '../../../../../models/hooks/use_stores';
 
-const LoggedInView = (props) => {
-    const { authStore } = props;
+const LoggedInView = observer(() => {
+    const { authStore } = useStores();
+
     if (!authStore.isAuthenticated) {
         return null;
     }
@@ -78,6 +80,6 @@ const LoggedInView = (props) => {
             </ul>
         </div>
     );
-};
+});
 
-export default inject('authStore')(observer(LoggedInView));
+export default LoggedInView;

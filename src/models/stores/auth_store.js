@@ -1,14 +1,50 @@
 import { observable, action } from 'mobx';
-import ApiService from '../services/api.service';
-import JwtService from '../services/jwt.service';
+import { useLocalStore } from 'mobx-react';
+
+import ApiService from '../../services/api.service';
+import JwtService from '../../services/jwt.service';
 import UserStore from './user_store';
+
+export function createAuthStore() {
+    return {
+        errors: [],
+        inProgress: false,
+        isAuthenticated: !!JwtService.getToken(),
+        async login(login, password) {
+            this.inProgress = true;
+            this.errors = [];
+
+            await new Promise((resolve) => setTimeout(resolve, 5000));
+            const success = login === 'admin' && password === '1234';
+            if (success) {
+                this.errors = [];
+                this.isAuthenticated = true;
+            } else {
+                this.errors.push({ body: 'Incorrect login or password' });
+            }
+            this.inProgress = false;
+            try {
+                const { user, token } = await ApiService.post('/login', {
+                    login,
+                    password,
+                });
+                UserStore.setUser(user);
+                JwtService.saveToken(token);
+            } catch (e) {
+                this.errors.push({ body: 'Incorrect login or password' });
+            } finally {
+                this.inProgress = false;
+            }
+        },
+    };
+}
 
 class AuthStore {
     @observable errors = [];
 
     @observable inProgress = false;
 
-    @observable isAuthenticated = !!JwtService.getToken();
+    @observable isAuthenticated = false;
 
     @action async login(login, password) {
         this.inProgress = true;
@@ -65,4 +101,4 @@ class AuthStore {
     }
 }
 
-export default new AuthStore();
+export default AuthStore;

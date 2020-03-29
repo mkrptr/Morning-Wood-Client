@@ -1,11 +1,15 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styles from './logged_out_view.module.css';
+import { observer } from 'mobx-react';
 
-const LoggedOutView = (props) => {
-    const { isAuthenticated } = props;
-    if (isAuthenticated) {
+import styles from './logged_out_view.module.css';
+import useStores from '../../../../../models/hooks/use_stores';
+
+const LoggedOutView = observer(() => {
+    const { authStore } = useStores();
+
+    if (authStore.isAuthenticated) {
         return null;
     }
     return (
@@ -70,6 +74,6 @@ const LoggedOutView = (props) => {
             </ul>
         </div>
     );
-};
+});
 
 export default LoggedOutView;
