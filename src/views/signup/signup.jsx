@@ -3,49 +3,43 @@ import React from 'react';
 import { observer, useLocalStore } from 'mobx-react';
 import { useHistory } from 'react-router-dom';
 
-import LoginErrors from './components/login_errors/login_errors';
-import LoadingBar from './components/loading_bar/loading_bar';
-import styles from './login.module.css';
+import styles from './signup.module.css';
 import useStores from '../../models/hooks/use_stores';
 
-const Login = observer(() => {
+const Signup = observer(() => {
     const { authStore } = useStores();
     const history = useHistory();
     const state = useLocalStore(() => ({
         login: '',
         password: '',
-        async authenticate(event) {
-            if (event) {
-                event.preventDefault();
-            }
-            const res = await authStore.login(
-                state.login,
-                state.password,
-            );
-            if (res) {
-                history.push('/');
-            }
-        },
+        passwordConfirm: '',
+        email: '',
         inputChange(event) {
             event.persist();
             state[event.target.name] = event.target.value;
         },
+        async register(event) {
+            if (event) {
+                event.preventDefault();
+            }
+            const res = await authStore.register({
+                login: state.login,
+                password: state.password,
+                passwordConfirm: state.passwordConfirm,
+            });
+            if (res) {
+                history.push('/login');
+            }
+        }
     }));
     return (
-        <div className={styles.loginWrapper}>
+        <div className={styles.registerWrapper}>
             <form
-                className={styles.loginBlock}
-                onSubmit={state.authenticate}
+                className={styles.registerBlock}
+                onSubmit={state.register}
             >
-                <h1 className={styles.welcomeText}>Welcome</h1>
-                <img
-                    className={styles.userIcon}
-                    src={`${process.env.IMAGE_PATH}/images/small-log-icon.png`}
-                    alt="user"
-                />
-                <LoginErrors errors={authStore.errors} />
-                <LoadingBar inProgress={authStore.inProgress} />
-                <div className={styles.loginMainBox}>
+                <h1 className={styles.createAccountText}>Create account</h1>
+                <div className={styles.registerMainBox}>
                     <div className={styles.fieldWrapper}>
                         <p className={styles.labelText}>Login</p>
                         <input
@@ -68,16 +62,27 @@ const Login = observer(() => {
                             onChange={state.inputChange}
                         />
                     </div>
+                    <div className={styles.fieldWrapper}>
+                        <p className={styles.labelText}>Password</p>
+                        <input
+                            type="password"
+                            className={styles.inputField}
+                            name="passwordConfirm"
+                            placeholder="Confirm password"
+                            value={state.passwordConfirm}
+                            onChange={state.inputChange}
+                        />
+                    </div>
                 </div>
                 <button
                     type="submit"
-                    className={styles.loginSubmitButton}
+                    className={styles.registerSubmitButton}
                 >
-                    Login
-                </button>
+                    Register
+                    </button>
             </form>
         </div>
     );
 });
 
-export default Login;
+export default Signup;
