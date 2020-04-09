@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-import Lot from '../../models/prop_types/lot';
 import styles from './lot.module.css';
 
 const MainPageLot = (props) => {
@@ -32,6 +32,11 @@ const MainPageLot = (props) => {
 };
 
 MainPageLot.propTypes = {
-    lot: Lot.isRequired,
+    lot: PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        name: PropTypes.string.isRequired,
+        price: PropTypes.number.isRequired,
+        description: PropTypes.string,
+    }).isRequired,
 };
 export default MainPageLot;
