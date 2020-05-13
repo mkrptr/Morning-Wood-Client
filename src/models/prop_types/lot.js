@@ -5,4 +5,5 @@ export default PropTypes.shape({
     name: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
     description: PropTypes.string,
+    image_path: PropTypes.string,
 });

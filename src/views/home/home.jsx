@@ -12,9 +12,9 @@ const Home = () => (
                 <div className={styles.present}>
                     <p className={styles.welcome}>Welcome to Morning Wood</p>
                     <h1 className={styles.logs}>
-                            Fucking logs
+                            Beautiful logs
                     </h1>
-                    <p>You don't even need them, nigga</p>
+                    <p>We're sure you'll need them</p>
                     <Link to="/catalog">
                         <button
                             type="button"

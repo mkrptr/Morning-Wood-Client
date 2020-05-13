@@ -15,41 +15,9 @@ const Catalog = () => {
             try {
                 const lotsRes = await fetch(`${API_URL}/lots`);
                 setLots(await lotsRes.json());
-            } catch (e) {
-                const lotsStub = [
-                    {
-                        id: 1,
-                        name: 'Nigga wood',
-                        price: 200,
-                        description: '',
-                    },
-                    {
-                        id: 2,
-                        name: 'Red wood',
-                        price: 1000,
-                        description: '',
-                    },
-                    {
-                        id: 3,
-                        name: 'Black wood',
-                        price: 60,
-                        description: '',
-                    },
-                    {
-                        id: 4,
-                        name: 'Mystery wood',
-                        price: 900,
-                        description: '',
-                    },
-                    {
-                        id: 5,
-                        name: 'Buff wood',
-                        price: 650,
-                        description: '',
-                    },
-                ];
-                setLots(lotsStub);
                 setLotsLoaded(true);
+            } catch (e) {
+                console.error('Couldn\'t load lots');
             }
         };
         if (!lotsLoaded) {
@@ -65,7 +33,7 @@ const Catalog = () => {
     return (
         <div className={styles.catalogWrapper}>
             <div className={styles.catalogBanner}>
-                <h1 className={styles.bannerTitle}>Our fucking logs</h1>
+                <h1 className={styles.bannerTitle}>Our beautiful logs</h1>
             </div>
             <div className={styles.catalogBody}>
                 <div className={styles.filter}>

@@ -11,7 +11,7 @@ const MainPageLot = (props) => {
             <div className={styles.lotWrapper}>
                 <img
                     className={styles.lotImage}
-                    src={`${process.env.IMAGE_PATH}/images/plywood_placeholder.jpg`}
+                    src={`${process.env.IMAGE_PATH}/${lot.image_path}`}
                     alt="lot"
                 />
                 <Link

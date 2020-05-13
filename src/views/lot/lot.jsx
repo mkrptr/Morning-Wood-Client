@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
+
+import { API_URL } from '../../config';
 import styles from './lot.module.css';
 
 const Lot = () => {
@@ -8,13 +10,12 @@ const Lot = () => {
 
     useEffect(() => {
         const fetchLot = async (lotId) => {
-            setLot({
-                id: 1,
-                name: 'Nigga wood',
-                price: 1488,
-                description: 'This ass fucking wood made of the finest niggas of Detroit ghettos will bless you with its odor of fried chicken and make your father fucking disappear into thin air',
-                imagePath: `${process.env.IMAGE_PATH}/images/nigga_wood.jpg`,
-            });
+            try {
+                const lotRes = await fetch(`${API_URL}/lot/${lotId}`);
+                setLot(await lotRes.json());
+            } catch (e) {
+                console.error('Couldn\'t load the lot')
+            }
         };
         fetchLot(id);
     }, [setLot, id]);
