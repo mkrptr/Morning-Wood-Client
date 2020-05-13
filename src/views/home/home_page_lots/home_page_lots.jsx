@@ -1,15 +1,21 @@
 import React, { useState, useEffect } from 'react';
 
+import { API_URL } from '../../config';
 import Lot from '../../../common_components/lot/lot';
 
 
 const HomePageLots = () => {
     const [lots, setLots] = useState([]);
     useEffect(() => {
-        const fetchLotsAjax = async () => {
-            setLots([{ id: 1, name: 'wood', price: 1488 }]);
+        const fetchLots = async () => {
+            try {
+                const lots = await fetch('${API_URL}/lots');
+                setLots(await lots.json());
+            } catch (e) {
+                console.error('Couldn\'t load lots');
+            }
         };
-        fetchLotsAjax();
+        fetchLots();
     }, [setLots]);
 
     const lotsList = lots.map((lot) => (
