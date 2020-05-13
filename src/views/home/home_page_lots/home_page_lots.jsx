@@ -9,7 +9,7 @@ const HomePageLots = () => {
     useEffect(() => {
         const fetchLots = async () => {
             try {
-                const lots = await fetch('${API_URL}/lots');
+                const lots = await fetch(`${API_URL}/lots`);
                 setLots(await lots.json());
             } catch (e) {
                 console.error('Couldn\'t load lots');
