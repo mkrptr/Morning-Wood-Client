@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import IMAGE_PATH from '../../config';
 import Lot from '../../models/prop_types/lot';
 import styles from './lot.module.css';
 
@@ -11,7 +12,7 @@ const MainPageLot = (props) => {
             <div className={styles.lotWrapper}>
                 <img
                     className={styles.lotImage}
-                    src={`${process.env.IMAGE_PATH}/${lot.image_path}`}
+                    src={`${IMAGE_PATH}/${lot.image_path}`}
                     alt="lot"
                 />
                 <Link

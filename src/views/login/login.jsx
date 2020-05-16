@@ -3,6 +3,7 @@ import React from 'react';
 import { observer, useLocalStore } from 'mobx-react';
 import { useHistory } from 'react-router-dom';
 
+import IMAGE_PATH from '../../config';
 import LoginErrors from './components/login_errors/login_errors';
 import LoadingBar from './components/loading_bar/loading_bar';
 import styles from './login.module.css';
@@ -40,7 +41,7 @@ const Login = observer(() => {
                 <h1 className={styles.welcomeText}>Welcome</h1>
                 <img
                     className={styles.userIcon}
-                    src={`${process.env.IMAGE_PATH}/images/small-log-icon.png`}
+                    src={`${IMAGE_PATH}/small-log-icon.png`}
                     alt="user"
                 />
                 <LoginErrors errors={authStore.errors} />
