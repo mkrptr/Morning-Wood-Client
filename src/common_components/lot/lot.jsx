@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import IMAGE_PATH from '../../config';
+import { IMAGE_PATH } from '../../config';
 import Lot from '../../models/prop_types/lot';
 import styles from './lot.module.css';
 

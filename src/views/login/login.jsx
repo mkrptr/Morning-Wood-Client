@@ -3,7 +3,7 @@ import React from 'react';
 import { observer, useLocalStore } from 'mobx-react';
 import { useHistory } from 'react-router-dom';
 
-import IMAGE_PATH from '../../config';
+import { IMAGE_PATH } from '../../config';
 import LoginErrors from './components/login_errors/login_errors';
 import LoadingBar from './components/loading_bar/loading_bar';
 import styles from './login.module.css';
