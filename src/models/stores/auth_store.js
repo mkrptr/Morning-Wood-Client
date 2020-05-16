@@ -14,19 +14,10 @@ export function createAuthStore() {
             this.inProgress = true;
             this.errors = [];
 
-            await new Promise((resolve) => setTimeout(resolve, 5000));
-            const success = login === 'admin' && password === '1234';
-            if (success) {
-                this.errors = [];
-                this.isAuthenticated = true;
-            } else {
-                this.errors.push({ body: 'Incorrect login or password' });
-            }
-            this.inProgress = false;
             try {
-                const { user, token } = await ApiService.post('/login', {
-                    login,
-                    password,
+                const { user, token } = await ApiService.post('login', {
+			user: login,
+                    pass: password,
                 });
                 UserStore.setUser(user);
                 JwtService.saveToken(token);
