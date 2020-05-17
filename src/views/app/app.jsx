@@ -12,7 +12,6 @@ import Login from '../login/login';
 import Lot from '../lot/lot';
 import Catalog from '../catalog/catalog';
 import Register from '../signup/signup';
-import useStores from '../../models/hooks/use_stores';
 
 const App = withRouter(observer((props) => {
     const { appName } = props;

@@ -1,43 +1,8 @@
 import { observable, action } from 'mobx';
-import { useLocalStore } from 'mobx-react';
 
 import ApiService from '../../services/api.service';
 import JwtService from '../../services/jwt.service';
 import UserStore from './user_store';
-
-export function createAuthStore() {
-    return {
-        errors: [],
-        inProgress: false,
-        isAuthenticated: !!JwtService.getToken(),
-        async login(login, password) {
-            this.inProgress = true;
-            this.errors = [];
-
-            await new Promise((resolve) => setTimeout(resolve, 5000));
-            const success = login === 'admin' && password === '1234';
-            if (success) {
-                this.errors = [];
-                this.isAuthenticated = true;
-            } else {
-                this.errors.push({ body: 'Incorrect login or password' });
-            }
-            this.inProgress = false;
-            try {
-                const { user, token } = await ApiService.post('/login', {
-                    login,
-                    password,
-                });
-                UserStore.setUser(user);
-                JwtService.saveToken(token);
-            } catch (e) {
-                this.errors.push({ body: 'Incorrect login or password' });
-            } finally {
-                this.inProgress = false;
-            }
-        },
-    };
-}
 
 class AuthStore {
     @observable errors = [];
@@ -46,26 +11,18 @@ class AuthStore {
 
     @observable isAuthenticated = false;
 
-    @action async login(login, password) {
+    @action
+    async login(login, password) {
         this.inProgress = true;
         this.errors = [];
 
-        await new Promise((resolve) => setTimeout(resolve, 5000));
-        const success = login === 'admin' && password === '1234';
-        if (success) {
-            this.errors = [];
-            this.isAuthenticated = true;
-        } else {
-            this.errors.push({ body: 'Incorrect login or password' });
-        }
-        this.inProgress = false;
         try {
-            const { user, token } = await ApiService.post('/login', {
+            const data = await ApiService.post('login', {
                 login,
                 password,
             });
-            UserStore.setUser(user);
-            JwtService.saveToken(token);
+            UserStore.setUser(data.user);
+            JwtService.saveToken(data.user.token);
         } catch (e) {
             this.errors.push({ body: 'Incorrect login or password' });
         } finally {
@@ -76,18 +33,18 @@ class AuthStore {
     @action
     async register(login, password, passwordConfirm) {
         if (password !== passwordConfirm) {
-            this.errors.push({ body: 'Password don\'t match' });
+            this.errors.push({ body: 'Passwords don\'t match' });
         }
         this.inProgress = true;
         try {
-            const newUser = await ApiService.post('/register', {
+            const _data = await ApiService.post('register', {
                 login,
                 password,
                 passwordConfirm,
             });
             this.isAuthenticated = true;
         } catch (e) {
-            this.errors.push('');
+            this.errors.push('Couldn\'t register');
         } finally {
             this.inProgress = false;
         }
