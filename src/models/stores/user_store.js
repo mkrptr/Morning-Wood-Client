@@ -4,6 +4,10 @@ import { observable, action } from 'mobx';
 class UserStore {
     @observable user = null;
 
+    constructor(rootStore) {
+        this.rootStore = rootStore;
+    }
+
     @action
     setUser(user) {
         this.user = user;

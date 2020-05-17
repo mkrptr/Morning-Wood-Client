@@ -2,7 +2,6 @@ import { observable, action } from 'mobx';
 
 import ApiService from '../../services/api.service';
 import JwtService from '../../services/jwt.service';
-import UserStore from './user_store';
 
 class AuthStore {
     @observable errors = [];
@@ -10,6 +9,10 @@ class AuthStore {
     @observable inProgress = false;
 
     @observable isAuthenticated = false;
+
+    constructor(rootStore) {
+        this.rootStore = rootStore;
+    }
 
     @action
     async login(login, password) {
@@ -23,7 +26,7 @@ class AuthStore {
             });
             const data = await response.json();
             console.log(data);
-            UserStore.setUser(data.user);
+            this.userStore.setUser(data.user);
             JwtService.saveToken(data.user.token);
         } catch (e) {
             this.errors.push({ body: 'Incorrect login or password' });
@@ -55,7 +58,7 @@ class AuthStore {
 
     @action
     logout() {
-        UserStore.purgeUser();
+        this.rootStore.userStore.purgeUser();
         JwtService.purgeToken();
         this.isAuthenticated = false;
     }
