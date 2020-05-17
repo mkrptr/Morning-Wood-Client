@@ -21,8 +21,8 @@ class AuthStore {
                 user: login,
                 pass: password,
             });
-	    const data = await response.json();
-	    console.log(data);
+            const data = await response.json();
+            console.log(data);
             UserStore.setUser(data.user);
             JwtService.saveToken(data.user.token);
         } catch (e) {
