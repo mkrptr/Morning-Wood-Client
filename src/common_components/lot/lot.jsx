@@ -17,7 +17,7 @@ const MainPageLot = (props) => {
                 />
                 <Link
                     className={styles.lotName}
-                    to={`/lots/${lot.id}`}
+                    to={`/lots/${lot._id}`}
                 >
                     { lot.name }
                 </Link>

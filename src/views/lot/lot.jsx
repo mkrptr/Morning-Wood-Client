@@ -11,7 +11,7 @@ const Lot = () => {
     useEffect(() => {
         const fetchLot = async (lotId) => {
             try {
-                const lotRes = await fetch(`${API_URL}/lot/${lotId}`);
+                const lotRes = await fetch(`${API_URL}/lots/${lotId}`);
                 setLot(await lotRes.json());
             } catch (e) {
                 console.error('Couldn\'t load the lot')

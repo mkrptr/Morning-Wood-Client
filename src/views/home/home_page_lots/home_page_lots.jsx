@@ -19,7 +19,7 @@ const HomePageLots = () => {
     }, [setLots]);
 
     const lotsList = lots.map((lot) => (
-        <Lot key={lot.id} lot={lot} />
+        <Lot key={lot._id} lot={lot} />
     ));
     return (
         <div className="lots-wrapper">

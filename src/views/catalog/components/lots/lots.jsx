@@ -8,7 +8,7 @@ const Lots = (props) => {
     const { lots } = props;
 
     const lotsList = lots.map((lot) => (
-        <Lot lot={lot} key={lot.id} />
+        <Lot lot={lot} key={lot._id} />
     ));
 
     return (
