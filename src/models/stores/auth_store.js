@@ -26,6 +26,7 @@ class AuthStore {
             });
             const data = await response.json();
             this.rootStore.userStore.setUser(data.user);
+            this.isAuthenticated = true;
             JwtService.saveToken(data.user.token);
         } catch (e) {
             this.errors.push({ body: 'Incorrect login or password' });
