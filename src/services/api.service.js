@@ -3,12 +3,15 @@ import { API_URL } from '../config';
 
 const ApiService = {
     async get(resource) {
-        const rawData = await fetch(`${API_URL}/${resource}`);
-        return rawData.json();
+        return fetch(`${API_URL}/${resource}`);
     },
     async post(resource, data) {
-        await fetch(`${API_URL}/${resource}`, {
+        return fetch(`${API_URL}/${resource}`, {
             method: 'POST',
+            headers: {
+	        'Accept': 'application/json',
+	        'Content-Type': 'application/json'
+	    },
             body: JSON.stringify(data),
         });
     },

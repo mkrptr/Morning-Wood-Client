@@ -17,10 +17,12 @@ class AuthStore {
         this.errors = [];
 
         try {
-            const data = await ApiService.post('login', {
-                login,
-                password,
+            const response = await ApiService.post('login', {
+                user: login,
+                pass: password,
             });
+	    const data = await response.json();
+	    console.log(data);
             UserStore.setUser(data.user);
             JwtService.saveToken(data.user.token);
         } catch (e) {
@@ -37,11 +39,12 @@ class AuthStore {
         }
         this.inProgress = true;
         try {
-            const _data = await ApiService.post('register', {
-                login,
-                password,
-                passwordConfirm,
+            const response = await ApiService.post('register', {
+                user: login,
+                pass: password,
             });
+            const data = await response.json();
+	    console.log(data);
             this.isAuthenticated = true;
         } catch (e) {
             this.errors.push('Couldn\'t register');
