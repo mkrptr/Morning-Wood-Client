@@ -19,11 +19,11 @@ const Login = observer(() => {
             if (event) {
                 event.preventDefault();
             }
-            const res = await authStore.login(
+            await authStore.login(
                 state.login,
                 state.password,
             );
-            if (res) {
+            if (authStore.errors.length === 0) {
                 history.push('/');
             }
         },

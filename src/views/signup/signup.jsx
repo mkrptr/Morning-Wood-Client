@@ -22,12 +22,12 @@ const Signup = observer(() => {
             if (event) {
                 event.preventDefault();
             }
-            const res = await authStore.register({
+            await authStore.register({
                 login: state.login,
                 password: state.password,
                 passwordConfirm: state.passwordConfirm,
             });
-            if (res) {
+            if (authStore.errors.length === 0) {
                 history.push('/login');
             }
         }

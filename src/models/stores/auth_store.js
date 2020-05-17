@@ -25,7 +25,6 @@ class AuthStore {
                 pass: password,
             });
             const data = await response.json();
-            console.log(data);
             this.rootStore.userStore.setUser(data.user);
             JwtService.saveToken(data.user.token);
         } catch (e) {
@@ -47,7 +46,6 @@ class AuthStore {
                 pass: password,
             });
             const data = await response.json();
-	    console.log(data);
             this.isAuthenticated = true;
         } catch (e) {
             this.errors.push('Couldn\'t register');
