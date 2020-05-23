@@ -46,7 +46,6 @@ class AuthStore {
                 user: login,
                 pass: password,
             });
-            const data = await response.json();
             this.isAuthenticated = true;
         } catch (e) {
             this.errors.push('Couldn\'t register');

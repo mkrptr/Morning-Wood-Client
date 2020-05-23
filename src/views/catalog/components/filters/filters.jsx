@@ -48,7 +48,7 @@ const Filters = (props) => {
         const parameter = Object.entries(FilterParameter)
             .filter((parameterEntry) => parameterEntry[1].alias === event.target.value)
             .map((parameterEntry) => parameterEntry[0])[0];
-        if (parameter === undefined) {
+        if (typeof parameter === 'undefined') {
             console.error('Filters/toggle: invalid parameter value');
             return;
         }

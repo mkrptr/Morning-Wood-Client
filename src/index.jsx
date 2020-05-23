@@ -5,7 +5,7 @@ import { HashRouter } from 'react-router-dom';
 
 import './index.css';
 import App from './views/app/app';
-console.log(process.env);
+
 ReactDOM.render((
     <HashRouter>
         <App appName="Morning Wood" />
