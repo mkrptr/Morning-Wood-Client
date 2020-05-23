@@ -1,5 +1,5 @@
-import AuthStore from "./auth_store";
-import UserStore from "./user_store";
+import AuthStore from './auth_store';
+import UserStore from './user_store';
 
 export default class RootStore {
     constructor() {
