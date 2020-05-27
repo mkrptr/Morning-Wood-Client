@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 
@@ -11,10 +12,10 @@ const Lot = () => {
     useEffect(() => {
         const fetchLot = async (lotId) => {
             try {
-                const lotRes = await fetch(`${API_URL}/lots/${lotId}`);
-                setLot(await lotRes.json());
+                const lotResponse = await fetch(`${API_URL}/lots/${lotId}`);
+                setLot(await lotResponse.json());
             } catch (e) {
-                console.error('Couldn\'t load the lot')
+                console.error('Couldn\'t load the lot');
             }
         };
         fetchLot(id);

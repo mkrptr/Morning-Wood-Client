@@ -4,7 +4,7 @@
 }
 
 .catalogBanner {
-    background: url("/images/logs_stacked_dark_thin.jpg");
+    background: url("/logs_stacked_dark_thin.jpg");
     display: flex;
     justify-content: center;
     height: 15rem;

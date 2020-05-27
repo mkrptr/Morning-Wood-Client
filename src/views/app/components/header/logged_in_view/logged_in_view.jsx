@@ -14,7 +14,7 @@ const LoggedInView = observer(() => {
     }
 
     const logout = async () => {
-        await authStore.logout();
+        authStore.logout();
     };
 
     return (

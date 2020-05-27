@@ -2,7 +2,7 @@
 const TOKEN_NAME = 'mw_token';
 
 const JwtService = {
-    getToken () {
+    getToken() {
         return window.localStorage.getItem(TOKEN_NAME);
     },
     saveToken(token) {
@@ -10,7 +10,7 @@ const JwtService = {
     },
     purgeToken() {
         window.localStorage.removeItem(TOKEN_NAME);
-    }
+    },
 };
 
 export default JwtService;

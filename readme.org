@@ -12,16 +12,21 @@ git clone git@github.com:mkrptr/Morning-Wood-Client.git; cd Morning-Wood-Client
 #+BEGIN_SRC bash
 yarn install
 #+END_SRC
+*** All environment varibles should be set in .env files. If image path is kept empty, images are assumed to be served from /
+#+BEGIN_SRC bash
+REACT_APP_API_URL=<API_URL>
+REACT_APP_IMAGE_PATH=<PATH_TO_CDN_WITH_IMAGES>
+#+END_SRC
+*** Build for production
+#+BEGIN_SRC bash
+yarn build
+#+END_SRC
+** Running
 *** Run dev server
 #+BEGIN_SRC bash
 yarn start
 #+END_SRC
-*** Build for production
-Replace <path_to_cdn_with_images> with the actual path.
-If kept empty, images are expected to be served from <current_host>/images
-#+BEGIN_SRC bash
-IMAGE_PATH=<path_to_cdn_with_images> yarn build
-#+END_SRC
+
 
 ** Docker build
 You can also serve all files with docker
@@ -30,5 +35,5 @@ docker build -t morning-wood-client .
 #+END_SRC
 Which can be run by
 #+BEGIN_SRC bash
-REACT_APP_API_URL=<API_URL> IMAGE_PATH=<path_to_cdn_with_images> docker run -it -p 80:80 --rm morning-wood-client
+docker run -it -p 80:80 --rm morning-wood-client
 #+END_SRC

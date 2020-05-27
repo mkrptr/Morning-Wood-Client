@@ -30,7 +30,7 @@ const Signup = observer(() => {
             if (authStore.errors.length === 0) {
                 history.push('/login');
             }
-        }
+        },
     }));
     return (
         <div className={styles.registerWrapper}>
@@ -79,7 +79,7 @@ const Signup = observer(() => {
                     className={styles.registerSubmitButton}
                 >
                     Register
-                    </button>
+                </button>
             </form>
         </div>
     );

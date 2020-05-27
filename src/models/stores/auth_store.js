@@ -42,7 +42,7 @@ class AuthStore {
         }
         this.inProgress = true;
         try {
-            const response = await ApiService.post('register', {
+            await ApiService.post('register', {
                 user: login,
                 pass: password,
             });

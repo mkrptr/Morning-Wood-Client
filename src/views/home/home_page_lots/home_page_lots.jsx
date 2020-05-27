@@ -9,8 +9,9 @@ const HomePageLots = () => {
     useEffect(() => {
         const fetchLots = async () => {
             try {
-                const lots = await fetch(`${API_URL}/lots`);
-                setLots(await lots.json());
+                // eslint-disable-next-line no-undef
+                const lotsResponse = await fetch(`${API_URL}/lots`);
+                setLots(await lotsResponse.json());
             } catch (e) {
                 console.error('Couldn\'t load lots');
             }

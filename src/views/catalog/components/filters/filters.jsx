@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
+import LotPropType from '../../../../models/prop_types/lot';
 import styles from './filters.module.css';
 
 const FilterParameter = Object.freeze({
@@ -36,7 +37,7 @@ const Filters = (props) => {
             ));
         case FilterParameter.NAME.alias:
             return oldLots.sort((a, b) => (
-                a.name > b.name
+                a.name.toLowerCase() > b.name.toLowerCase()
             ));
         default:
             console.error('invalid parameter');
@@ -45,6 +46,7 @@ const Filters = (props) => {
     };
 
     const toggle = (event) => {
+        // TODO: this is utterly retarded
         const parameter = Object.entries(FilterParameter)
             .filter((parameterEntry) => parameterEntry[1].alias === event.target.value)
             .map((parameterEntry) => parameterEntry[0])[0];
@@ -86,12 +88,7 @@ const Filters = (props) => {
 
 Filters.propTypes = {
     lots: PropTypes.arrayOf(
-        PropTypes.shape({
-            id: PropTypes.number.isRequired,
-            name: PropTypes.string.isRequired,
-            price: PropTypes.number.isRequired,
-            description: PropTypes.string,
-        }).isRequired,
+        LotPropType,
     ).isRequired,
     setLots: PropTypes.func.isRequired,
 };
