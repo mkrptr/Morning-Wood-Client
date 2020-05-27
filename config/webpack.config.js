@@ -68,7 +68,7 @@ module.exports = function (webpackEnv) {
       {
         options: {
           search: '(?<=url\\(|url\\(")(\\/)(?=.*?(?:png|jpe?g|gif))',
-          replace: (process.env.IMAGE_PATH || '') + '/',
+          replace: (process.env.REACT_APP_IMAGE_PATH || '') + '/',
           flags: 'g',
         },
         loader: 'string-replace-loader',
