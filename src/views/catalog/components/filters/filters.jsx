@@ -29,15 +29,16 @@ const Filters = (props) => {
         switch (parameter.alias) {
         case FilterParameter.PRICE_ASC.alias:
             return oldLots.sort((a, b) => (
-                a.price > b.price
+                a.price - b.price
             ));
         case FilterParameter.PRICE_DESC.alias:
             return oldLots.sort((a, b) => (
-                a.price < b.price
+                b.price - a.price
             ));
         case FilterParameter.NAME.alias:
             return oldLots.sort((a, b) => (
-                a.name.toLowerCase() > b.name.toLowerCase()
+                a.name.toLowerCase() > b.name.toLowerCase() ? 1 :
+                    (a.name.toLowerCase() < b.name.toLowerCase() ? -1 : 0)
             ));
         default:
             console.error('invalid parameter');
